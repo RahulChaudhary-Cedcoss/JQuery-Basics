@@ -7,66 +7,72 @@
     <title>Jquery Basics</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        li {
-            color: blue;
-            text-decoration: underline;
+        table {
+            width: 40%;
+            border: 0.5px black;
+        }
+        td {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h2>Products List</h2>
-    <ul>
-        <li id="a">Clothes<button >+</button></li>
-        <ul>
-        <li id="b">T-Shirt<button >+</button></li>
-        <li id="c">Trousers<button >+</button></li>
-        </ul>
-        <li id="d">Electronics<button >+</button></li>
-        <ul>
-        <li id="e">Mobile<button >+</button></li>
-        <li id="f">Tabs<button >+</button><br></li>
-        </ul>
-        </ul>
-            <input type="text" id="addList">
-</body>
-</html>
-<script>
-    $(document).ready(function() {
-            $('#a').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = 
-                    '<li>' + content + '</li>'; 
-                $('#a').append(fixingContent);
-            });
-            $('#b').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = 
-                    '<li>' + content + '</li>'; 
-                $('#b').append(fixingContent); 
-            });
-             $('#c').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = 
-                    '<li>' + content + '</li>'; 
-                $('#c').append(fixingContent); 
-            });
-             $('#d').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = 
-                    '<li>' + content + '</li>'; 
-                $('#d').append(fixingContent); 
-            });
-             $('#e').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = 
-                    '<li>' + content + '</li>'; 
-                $('#e').append(fixingContent); 
-            });
-             $('#f').click(function() {
-                var content = $('#addList').val();
-                var fixingContent = content;
-                $('#f').append(fixingContent);
-            });
-        });
+    <h2>Products</h2>
 
+    <div class="product">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Color/Size</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Duffle Bag</td>
+            <td>
+              <select id="SM" >
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+              </select>
+            </td>
+            <td id="price">1000</td>
+          </tr>
+          <tr>
+            <td>T-Shirts</td>
+            <td>
+              <select id="LG" >
+                <option value="green">Green</option>
+                <option value="lg">Light Gray</option>
+              </select>
+            </td>
+            <td id="t_price">1200</td>
+          </tr>
+        </table>
+      </div>
+   
+</body>
+<script>
+
+$(document).ready(function() {
+ $("#SM").change(()=>{
+      var val = $("#SM").val(); 
+      $("#price").empty();
+      if(val=="medium"){
+        $("#price").append("1000");
+      }else {
+        $("#price").append("1200");
+      }
+    });
+
+    $("#LG").change(()=>{
+      var val = $("#LG").val(); 
+      $("#t_price").empty();
+      if(val=="lg"){
+        $("#t_price").append("1500");
+      }else {
+        $("#t_price").append("2000");
+      }
+    });
+});
+    
 </script>
+    
