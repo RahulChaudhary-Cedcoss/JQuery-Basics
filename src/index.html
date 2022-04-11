@@ -6,18 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jquery Basics</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        li {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <p id="para">This is a paragraph</p>
-    
+    <h2>Products List</h2>
+    <ul>
+        <li id="a">Clothes<button >+</button></li>
+        <ul>
+        <li id="b">T-Shirt<button >+</button></li>
+        <li id="c">Trousers<button >+</button></li>
+        </ul>
+        <li id="d">Electronics<button >+</button></li>
+        <ul>
+        <li id="e">Mobile<button >+</button></li>
+        <li id="f">Tabs<button >+</button><br></li>
+        </ul>
+        </ul>
+            <input type="text" id="addList">
 </body>
 </html>
 <script>
     $(document).ready(function() {
-        $("#para").click(function() {
-            alert("Clicked me");
+            $('#a').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = 
+                    '<li>' + content + '</li>'; 
+                $('#a').append(fixingContent);
+            });
+            $('#b').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = 
+                    '<li>' + content + '</li>'; 
+                $('#b').append(fixingContent); 
+            });
+             $('#c').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = 
+                    '<li>' + content + '</li>'; 
+                $('#c').append(fixingContent); 
+            });
+             $('#d').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = 
+                    '<li>' + content + '</li>'; 
+                $('#d').append(fixingContent); 
+            });
+             $('#e').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = 
+                    '<li>' + content + '</li>'; 
+                $('#e').append(fixingContent); 
+            });
+             $('#f').click(function() {
+                var content = $('#addList').val();
+                var fixingContent = content;
+                $('#f').append(fixingContent);
+            });
         });
-
-    });
 
 </script>
