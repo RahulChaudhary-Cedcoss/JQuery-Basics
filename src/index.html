@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Test</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Basics</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #next {
+            padding-right: 3%;
+            padding-left: 3%;
+               }
+               #prev {
+                padding-right: 2%;
+            padding-left: 2%;
+
+               }
+               img{
+    width: 350px;
+    height: 350px;
+}
+    </style>
 </head>
-<body>
-<div class="test">
-<p>Car Details</p>
-<p>
-In real life, a car is an object. A car has properties like weight and color, and methods like start and stop. All cars have the same properties, but the property values differ from car to car.</p>
-<p>All cars have the same methods, but the methods are performed at different times.</p>
-</div>
-<div class="demo">
-<p>Food Details</p>
-<p>The seven food categories are</p>
-<p>Vegetables, Fruits, Grains, legumes, nuts and seeds, Meat and poultry, Fish and seafood, Dairy foods, Eggs</p>
-<p>Food sources from animals, birds, seafood and some plants provide protein that is the building blocks of cells</p>
-</div>
-<div class="test">
-<p>Mobile Details</p>
-<p>There are three categories of mobile phones: basic phones, feature phones, and smartphones.</p>
-<p>Smartphones are equipped with a QWERTY keypad.</p>
-</div>
+<body  onload="makeImage();">
+    <button onclick="nextImage()" id="prev">Previous</button>
+    <button onclick="prevImage()" id="next">Next</button>
+    <br><br>
+    <div class="contents" id="content"></div>
+    
 </body>
 </html>
-
 <script>
-$(document).ready(function() {
-setTimeout(function() {
-            $(".test").children().first().css({"color": "yellow"});
-            $(".test").children().last().css({"color": "yellow"});
-        },5000);
-});
+    var images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg"];
+    var index = 0;
+        function makeImage() {
+   var img = document.createElement('img')
+   img.src = images[index];
+   document.getElementById('content').appendChild(img);
+}
+function nextImage(){
+   var img = document.getElementById('content').getElementsByTagName('img')[0]
+   index++;
+   index = index % images.length; 
+   img.src = images[index];
+}
+
+function prevImage() {
+    var img = document.getElementById('content').getElementsByTagName('img')[0]
+    index--;
+    index = index%images.length;
+    img.src = images[index];
+}
 </script>
