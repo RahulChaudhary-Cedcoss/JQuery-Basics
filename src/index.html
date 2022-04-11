@@ -1,54 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jquery Basics</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
-        #next {
-            padding-right: 3%;
-            padding-left: 3%;
-               }
-               #prev {
-                padding-right: 2%;
-            padding-left: 2%;
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
-               }
-               img{
-    width: 350px;
-    height: 350px;
-}
-    </style>
 </head>
-<body  onload="makeImage();">
-    <button onclick="nextImage()" id="prev">Previous</button>
-    <button onclick="prevImage()" id="next">Next</button>
-    <br><br>
-    <div class="contents" id="content"></div>
-    
+
+<body>
+    <div>
+        <label for="tags">Suggestions: </label>
+        <input id="tags">
+    </div>
 </body>
+
 </html>
 <script>
-    var images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg"];
-    var index = 0;
-        function makeImage() {
-   var img = document.createElement('img')
-   img.src = images[index];
-   document.getElementById('content').appendChild(img);
-}
-function nextImage(){
-   var img = document.getElementById('content').getElementsByTagName('img')[0]
-   index++;
-   index = index % images.length; 
-   img.src = images[index];
-}
+    $(function () {
+        var MyArray = ["Lily", "Rose", "Lotus", "Jasmine", "Champa"];
+        $("#tags").autocomplete({
+            source: MyArray
+        });
+    });
 
-function prevImage() {
-    var img = document.getElementById('content').getElementsByTagName('img')[0]
-    index--;
-    index = index%images.length;
-    img.src = images[index];
-}
 </script>
