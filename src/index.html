@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jquery Basics</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
-    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
 </head>
-
 <body>
-    <div>
-        <label for="tags">Suggestions: </label>
-        <input id="tags">
-    </div>
+    <p id="para">This is a paragraph</p>
+    
 </body>
-
 </html>
 <script>
-    $(function () {
-        var MyArray = ["Lily", "Rose", "Lotus", "Jasmine", "Champa"];
-        $("#tags").autocomplete({
-            source: MyArray
+    $(document).ready(function() {
+        $("#para").click(function() {
+            alert("Clicked me");
         });
+
     });
 
 </script>
